@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './users/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { UserModule } from './users/user.module';
+import { ProductModule } from './product/product.module';
 
 
 @Module({
@@ -12,8 +13,10 @@ import { join } from 'path';
       database: 'ecommerce-db',
       entities: [join(__dirname, '**/**.entity{.ts,.js}')],
       synchronize: true,
+      useNewUrlParser: true
     }),
     UserModule,
+    ProductModule
   ],
 })
 

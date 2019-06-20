@@ -1,4 +1,4 @@
-import { Column, Entity, ObjectID, ObjectIdColumn, Double, Long } from 'typeorm';
+import { Column, Entity, ObjectID, ObjectIdColumn } from 'typeorm';
 
 @Entity('products')
 export class Product {
@@ -17,6 +17,9 @@ export class Product {
 
   @Column()
   price: number;
+
+  @Column()
+  quantity: number;
 
   @Column()
   unity: string;
