@@ -14,6 +14,7 @@
     "prestart:prod": "rimraf dist && npm run build",
     "start:prod": "node dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
+    "postinstall": "npm run prestart:prod",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
