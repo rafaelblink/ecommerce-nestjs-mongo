@@ -4,7 +4,6 @@ import { join } from 'path';
 import { UserModule } from './users/user.module';
 import { ProductModule } from './product/product.module';
 
-
 @Module({
   imports: [
     TypeOrmModule.forRoot({
