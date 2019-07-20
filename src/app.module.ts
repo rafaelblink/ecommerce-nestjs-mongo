@@ -9,14 +9,15 @@ import { ProductModule } from './product/product.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      host: 'localhost',
+      url: 'mongodb+srv://rafa:senha123@cluster0-2ldci.mongodb.net/test?retryWrites=true&w=majority',
       database: 'ecommerce-db',
       entities: [join(__dirname, '**/**.entity{.ts,.js}')],
-      synchronize: true,
-      useNewUrlParser: true
+      synchronize: false,
+      useNewUrlParser: true,
+      ssl: true,
     }),
     UserModule,
-    ProductModule
+    ProductModule,
   ],
 })
 
