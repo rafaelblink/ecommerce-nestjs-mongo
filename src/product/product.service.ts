@@ -21,7 +21,11 @@ export class ProductService {
     return await this.productRepository.findOne(id);
   }
 
-  async save(product: Product) {        
+  async save(product: Product) {
     return await this.productRepository.save(product);
+  }
+
+  async remove(product: Product) {
+    return await this.productRepository.remove(product);
   }
 }

@@ -1,4 +1,4 @@
-import { Get, Param, Controller, Post, Body } from "@nestjs/common";
+import { Get, Param, Controller, Post, Body, Delete } from "@nestjs/common";
 import { Product } from "./product.entity";
 import { ProductService } from "./product.service";
 
@@ -18,6 +18,11 @@ export class ProductController {
 
     @Post()
     save(@Body() product: Product) {
+        return this.productService.save(product);
+    }
+
+    @Delete()
+    delete(@Body() product: Product) {
         return this.productService.save(product);
     }
   }

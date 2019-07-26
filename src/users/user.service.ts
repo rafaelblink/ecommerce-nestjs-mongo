@@ -20,23 +20,15 @@ export class UserService {
     return await this.userRepository.findOne(id);
   }
 
+  async remove(user: User) {
+    return await this.userRepository.remove(user);
+  }
+
   async save(user: User) {
     user.isActive = true;
     user.password = crypto.createHmac('sha1', user.password)
     .update('banda_dejavu')
     .digest('hex');
     return await this.userRepository.save(user);
-  }
-
-  async seed() {
-    for (let index = 0; index < 10; index++) {
-      const user = new User();
-      user.username = faker.internet.userName().toLowerCase();
-      user.isActive = true;
-      user.password = crypto.createHmac('sha1', '123')
-      .update('banda_dejavu')
-      .digest('hex');
-      await this.userRepository.save(user);
-    }
   }
 }
