@@ -20,8 +20,10 @@ export class UserService {
     return await this.userRepository.findOne(id);
   }
 
-  async remove(user: User) {
-    return await this.userRepository.remove(user);
+  async remove(id) {
+    const user = this.userRepository.findOne(id).then(result => {
+      this.userRepository.delete(result);
+    });
   }
 
   async save(user: User) {

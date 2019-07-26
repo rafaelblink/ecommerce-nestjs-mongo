@@ -21,8 +21,8 @@ export class UserController {
     return this.userService.save(user);
   }
 
-  @Delete()
-  delete(@Body() user: User) {
-    return this.userService.remove(user);
+  @Delete(':id')
+  delete(@Param('id') id) {
+    return this.userService.remove(id);
   }
 }
