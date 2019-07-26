@@ -28,6 +28,7 @@
     "@nestjs/swagger": "^3.1.0",
     "@nestjs/typeorm": "^6.1.1",
     "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
     "faker": "^4.1.0",
     "mongodb": "^3.2.6",
     "reflect-metadata": "^0.1.12",

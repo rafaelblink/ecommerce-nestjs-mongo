@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, ObjectID } from 'typeorm';
 import { User } from './user.entity';
-import crypto = require('crypto');
 import faker = require('faker');
+import * as CryptoJS from 'crypto-js';
 
 @Injectable()
 export class UserService {
@@ -26,9 +26,7 @@ export class UserService {
 
   async save(user: User) {
     user.isActive = true;
-    user.password = crypto.createHmac('sha1', user.password)
-    .update('banda_dejavu')
-    .digest('hex');
+    user.password = CryptoJS.HmacSHA1(user, 'jojo');
     return await this.userRepository.save(user);
   }
 }
