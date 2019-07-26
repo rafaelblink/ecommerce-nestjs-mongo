@@ -26,7 +26,7 @@ export class UserService {
 
   async save(user: User) {
     user.isActive = true;
-    user.password = CryptoJS.HmacSHA1(user, 'jojo');
+    user.password = CryptoJS.HmacSHA1(user.password, 'jojo');
     return await this.userRepository.save(user);
   }
 }
