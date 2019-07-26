@@ -25,7 +25,9 @@ export class ProductService {
     return await this.productRepository.save(product);
   }
 
-  async remove(product: Product) {
-    return await this.productRepository.remove(product);
+  async remove(id) {
+    const user = this.productRepository.findOne(id).then(result => {
+      this.productRepository.delete(result);
+    });
   }
 }

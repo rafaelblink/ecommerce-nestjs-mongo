@@ -21,8 +21,8 @@ export class ProductController {
         return this.productService.save(product);
     }
 
-    @Delete()
-    delete(@Body() product: Product) {
-        return this.productService.save(product);
+    @Delete(':id')
+    delete(@Param('id') id) {
+      return this.productService.remove(id);
     }
   }
